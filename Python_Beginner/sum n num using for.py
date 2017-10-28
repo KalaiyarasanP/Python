@@ -1,6 +1,6 @@
 x=int(input())
-a=0
+b=0
 for i in range(1,x+1):
-    a=a+i
+    b=b+i
 else:
-    print(a)
+    print(b)
