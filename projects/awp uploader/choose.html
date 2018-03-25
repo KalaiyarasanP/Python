@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>GUVI UPLOADER</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=divice-width,initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="web1.js"></script>
+
+<!-- <script type="text/javascript">
+	function myFunction()
+	{
+		alert("Loading...........................");
+	}
+	
+// </script> -->
+<!--  <script type="text/javascript"> -->
+<!-- // 	$(document).ready(function(){
+// 		// $("#list").hide();
+// 		// $("#input").click(function(){
+// 			$.ajax({
+// 				type:"POST",
+// 				url:"/ls",
+// 				success:function(d)
+// 				{
+// 					console.log(d);
+// 					var txt="";
+// 					var json1=JSON.parse(d);
+// 					var len=json1.length;
+// 					for(var i=1;i<len;i++)
+// 					{
+// 						txt+="<option >"+json1[i]+"</option>";
+// 					}
+// 					// ();$("#list").show
+// 					$("#list").html(txt);
+
+// 				},
+
+ -->
+<!-- 				error:function(d)
+				{
+					console.log(d);
+				}
+			});
+		// });
+	});
+</script>
+ -->
+    
+	 
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-2">
+				
+			</div>
+			<div class="col-sm-8">
+
+				<div class="login">
+					<center><h1 class="display-4" ><b>UPLOADER</b></h1></center><br>
+                     <form id="upload form" action="{{url_for('upload')}}"   method="POST" enctype="multipart/form-data">
+                     	<div class="form-group">
+                     	
+		                  <label for="user"> <b>Select the Videos:</b></label>
+		                
+		                    <!-- <select id=""></select> -->
+		                  <!--  <input type="button" class="btn btn-primary" id="input" class="input-group-addon" name="inputpath"  ></input><br> -->
+		                   <!-- <select id="list" class="selectpicker"  name="inputpath">
+		                   	<option id="list" value=""></option>
+		                   	
+		                   </select> -->
+                            <input id="user" type="file" name="file" accept="video/*" multiple="">
+		                   
+
+		                <br>
+		                <!-- <label for="user" class="text-left"><b>Enter the Date:</b></label>
+		                <div class="input-group">
+		                   <span class="input-group-addon"><i class="glyphicon glyphicon-download"></i></span>
+		                  <input id="user" type="text" class="form-control" name="outputpath" placeholder="DD.MM.YYYY"><br>
+		                </div>
+		                <label for="user" class="text-left"><b>Enter the Time:</b></label>
+		                <div class="input-group">
+		                   <span class="input-group-addon"><i class="glyphicon glyphicon-download"></i></span>
+		                  <input id="user" type="text" class="form-control" name="time" placeholder="HH.MM"><br>
+		                </div> -->
+		                 <label for="s3" class="text-left"><b>Enter the s3 Output Folder Name:</b></label>
+		                <div class="input-group">
+		                   <span class="input-group-addon"><i class="glyphicon glyphicon-download"></i></span>
+		                  <input id="s3" type="text" class="form-control" name="s3path" placeholder="s3 OutputPath Inside in Bucket"><br>
+		                </div><br>
+		                <label for="user"> <b>Select the Video Quality:</b></label>
+		                
+		                    <!-- <select id=""></select> -->
+		                  <!--  <input type="button" class="btn btn-primary" id="input" class="input-group-addon" name="inputpath"  ></input><br> -->
+		                <select id="" class="selectpicker"  name="quality">
+		                	<option value="-c:v libx264 -b:v 500k -maxrate 500k -bufsize 350k">High</option>
+		                	<option value="-c:v libx264 -b:v 350k -maxrate 350k -bufsize 250k">Medium</option>
+		                	<option value="-c:v libx264 -b:v 200k -maxrate 200k -bufsize 120k">low</option>
+		                </select>
+		                <label for="time" class="text-left"><b>Enter the Chunktime :</b></label>
+		                <div class="input-group">
+		                   <span class="input-group-addon"><i class="glyphicon glyphicon-download"></i></span>
+		                  <input id="time" type="text" class="form-control" name="hlstime" placeholder=" In Seconds"><br>
+		                </div><br>
+
+		                </div>
+		                <br>
+		                <center><input id="button" type="submit" class="btn btn-primary" name="action"  value="upload"></center>
+                   	</form>
+					
+
+				</div>
+			</div>
+			<div class="col-sm-2">
+				
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
+<style type="text/css">
+	.login {
+  background: CadetBlue;
+  border: 1px solid #42464b;
+  border-radius: 6px;
+  height: 590px;
+  margin: 20px auto 0;
+  width: 419px;
+}
+h1[Class="display-4"]{
+	background: CornflowerBlue;
+  border: 1px solid #42464b;
+  border-radius: 6px;
+  height: 90px;
+  margin: 20px auto 0;
+  width: 400px;
+}
+.text
+{background: #eceeee;
+  border: 1px solid #42464b;
+  padding-up:5px 
+  border-radius: 6px;
+  height: 40px;
+  margin: 20px auto 0;
+  width: 400px;
+
+}
+#button{
+	padding-right: 20px
+}
+input[type=button]{
+	height: 30px;
+	width: 60px;
+	background:#42464b; 
+}
+
+}
+</style>
